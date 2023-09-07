@@ -3,6 +3,8 @@ import Personnel from "views/Personnel.js";
 import Calender from "views/Calender.js";
 import News  from "views/News";
 import Paybill from "views/Paybill";
+import Notifybill from "views/Notifybill";
+import Detail from "views/Detail";
 
 var routes = [
   {
@@ -21,7 +23,7 @@ var routes = [
         path: "/dashboard",
         name: "บริการ 1",
         layout: "/admin",
-        component: <Dashboard />, 
+        component:  <Notifybill/>, 
       },
       {
         path: "/service2",
@@ -45,10 +47,10 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/notifications",
+    path: "/detail",
     name: "รายละเอียดผู้เช่า",
     icon: "nc-icon nc-email-85",
-    component: " ",
+    component: <Detail />,
     layout: "/admin",
   },
   {
@@ -59,28 +61,28 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/tables",
+    path: "/notifybill",
     name: "แจ้งบิล",
     icon: "nc-icon nc-cloud-upload-94",
-    component: "",
+    component: <Notifybill/>,
     layout: "/admin",
   },
   {
-    path: "/rr",
+    path: "/paybill",
     name: "จ่ายบิล",
     icon: "nc-icon nc-laptop",
     component: <Paybill />,
     layout: "/admin",
   },
   {
-    path: "/cc",
+    path: "/news",
     name: "บอร์ดข่าวสาร",
     icon: "nc-icon nc-paper",
     component: <News />,
     layout: "/admin",
   },
   {
-    path: "/bb",
+    path: "/calender",
     name: "ปฏิทินหอพัก",
     icon: "nc-icon nc-calendar-60",
     component: <Calender />,

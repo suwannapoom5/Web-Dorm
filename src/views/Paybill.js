@@ -60,11 +60,8 @@ const Paybill = () => {
 
   return (
     <div className="content">
-      <div className="info">
-        <h1>จ่ายบิล</h1>
-      </div>
-      <DataTablePY slug="products" columns={columns} rows={paybillData} />
-      {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
+      <DataTablePY columns={columns} rows={paybillData} />
+      {open && <Add columns={columns} setOpen={setOpen} />}
     </div>
   );
 };
