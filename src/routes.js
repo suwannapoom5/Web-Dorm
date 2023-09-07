@@ -1,29 +1,4 @@
-/*!
-
-=========================================================
-* Paper Dashboard React - v1.3.2
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import Dashboard from "views/Dashboard.js";
-import Notifications from "views/Notifications.js";
-import Icons from "views/Icons.js";
-import Typography from "views/Typography.js";
-import TableList from "views/Tables.js";
-import Maps from "views/Map.js";
-import UserPage from "views/User.js";
-import UpgradeToPro from "views/Upgrade.js";
 
 var routes = [
   {
@@ -35,52 +10,76 @@ var routes = [
   },
   {
     path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-diamond",
-    component: <Icons />,
+    name: "บริการต่างๆ",
+    icon: "nc-icon nc-briefcase-24",
     layout: "/admin",
+    dropdown: [
+      {
+        path: "/service1",
+        name: "บริการ 1",
+        component: " ", 
+      },
+      {
+        path: "/service2",
+        name: "บริการ 2",
+        component: " ", 
+      },
+    ],
   },
   {
     path: "/maps",
-    name: "Maps",
-    icon: "nc-icon nc-pin-3",
-    component: <Maps />,
+    name: "ผังห้องพัก",
+    icon: "nc-icon nc-box",
+    component: " ",
     layout: "/admin",
   },
   {
     path: "/notifications",
-    name: "Notifications",
-    icon: "nc-icon nc-bell-55",
-    component: <Notifications />,
+    name: "รายละเอียดผู้เช่า",
+    icon: "nc-icon nc-email-85",
+    component: " ",
     layout: "/admin",
   },
   {
     path: "/user-page",
-    name: "User Profile",
-    icon: "nc-icon nc-single-02",
-    component: <UserPage />,
+    name: "จดมิเตอร์",
+    icon: "nc-icon nc-refresh-69",
+    component: " ",
     layout: "/admin",
   },
   {
     path: "/tables",
-    name: "Table List",
-    icon: "nc-icon nc-tile-56",
-    component: <TableList />,
+    name: "แจ้งบิล",
+    icon: "nc-icon nc-cloud-upload-94",
+    component: " ",
     layout: "/admin",
   },
   {
-    path: "/typography",
-    name: "Typography",
-    icon: "nc-icon nc-caps-small",
-    component: <Typography />,
+    path: "/rr",
+    name: "จ่ายบิล",
+    icon: "nc-icon nc-laptop",
+    component: " ",
     layout: "/admin",
   },
   {
-    pro: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "nc-icon nc-spaceship",
-    component: <UpgradeToPro />,
+    path: "/cc",
+    name: "บอร์ดข่าวสาร",
+    icon: "nc-icon nc-paper",
+    component: " ",
+    layout: "/admin",
+  },
+  {
+    path: "/bb",
+    name: "ปฏิทินหอพัก",
+    icon: "nc-icon nc-calendar-60",
+    component: " ",
+    layout: "/admin",
+  },
+  {
+    path: "/aa",
+    name: "บุคลากร",
+    icon: "nc-icon nc-single-02",
+    component: " ",
     layout: "/admin",
   },
 ];
