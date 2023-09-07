@@ -10,14 +10,20 @@ var ps;
 function Sidebar(props) {
   const location = useLocation();
   const sidebar = React.useRef();
-  const [submenuOpen, setSubmenuOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null); // State เพื่อเก็บเมนูที่เปิดอยู่
 
   const activeRoute = (routeName) => {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
 
-  const toggleSubmenu = () => {
-    setSubmenuOpen(!submenuOpen);
+  const toggleMenu = (index) => {
+    if (openMenu === index) {
+      // ถ้าคลิกเมนูที่กำลังเปิดอยู่ ให้ปิดเมนู
+      setOpenMenu(null);
+    } else {
+      // ถ้าคลิกเมนูที่ยังไม่เปิด ให้เปิดเมนู
+      setOpenMenu(index);
+    }
   };
 
   React.useEffect(() => {
@@ -51,51 +57,45 @@ function Sidebar(props) {
       <div className="sidebar-wrapper" ref={sidebar}>
         <Nav>
           {props.routes.map((prop, key) => {
-            if (prop.dropdown) {
-              return (
-                <li
-                  className={
-                    activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
-                  }
-                  key={key}
-                >
-                  <a href="#!" onClick={toggleSubmenu}>
+            const isDropdownOpen = key === openMenu;
+
+            return (
+              <li
+                className={`${
+                  activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
+                } ${isDropdownOpen ? "open" : ""}`}
+                key={key}
+              >
+                {prop.dropdown ? (
+                  <a href="#!" onClick={() => toggleMenu(key)}>
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
                   </a>
-                  {submenuOpen && (
-                    <ul className={`submenu ${submenuOpen ? "open" : ""}`}>
-                      {prop.dropdown.map((subItem, subKey) => (
-                        <li key={subKey}>
-                          <NavLink
-                            to={subItem.path}
-                            className={`nav-NavLink ${
-                              activeRoute(subItem.path) ? "active" : ""
-                            }`}
-                          >
-                            {subItem.name}
-                          </NavLink>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            } else {
-              return (
-                <li
-                  className={
-                    activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
-                  }
-                  key={key}
-                >
+                ) : (
                   <NavLink to={prop.layout + prop.path} className="nav-NavLink">
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
                   </NavLink>
-                </li>
-              );
-            }
+                )}
+                {isDropdownOpen && prop.dropdown && (
+                  <ul className="submenu">
+                    {prop.dropdown.map((subItem, subKey) => (
+                      <li key={subKey}>
+                        <NavLink
+                          to={subItem.layout + subItem.path}
+                          className={`${
+                            activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
+                          } ${isDropdownOpen ? "open" : ""}`}
+                          key={key}
+                        >
+                          {subItem.name}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            );
           })}
         </Nav>
       </div>

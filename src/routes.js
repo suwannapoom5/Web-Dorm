@@ -5,6 +5,7 @@ import News  from "views/News";
 import Paybill from "views/Paybill";
 import Notifybill from "views/Notifybill";
 import Detail from "views/Detail";
+import Clean from "views/Clean";
 
 var routes = [
   {
@@ -20,22 +21,22 @@ var routes = [
     layout: "/admin",
     dropdown: [
       {
-        path: "/dashboard",
-        name: "บริการ 1",
+        path: " ",
+        name: "เเจ้งซ่อม",
+        component: " ",
         layout: "/admin",
-        component:  <Notifybill/>, 
       },
       {
-        path: "/service2",
-        name: "บริการ 2",
+        path: "/clean",
+        name: "ทำความสะอาด",
         layout: "/admin",
-        component: <Dashboard />, 
+        component: <Clean />, 
       },
       {
-        path: "/service2",
-        name: "บริการ 3",
+        path: " ",
+        name: "รักษาความปลอดภัย",
         layout: "/admin",
-        component: <Dashboard />, 
+        component: " ", 
       },
     ],
   },
@@ -54,11 +55,23 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/user-page",
     name: "จดมิเตอร์",
     icon: "nc-icon nc-refresh-69",
-    component: " ",
     layout: "/admin",
+    dropdown: [
+      {
+        path: " ",
+        name: "ค่าน้ำ",
+        layout: "/admin",
+        component: " ",
+      },
+      {
+        path: " ",
+        name: "ค่าไฟฟ้า",
+        layout: "/admin",
+        component: " ",
+      },
+    ],
   },
   {
     path: "/notifybill",

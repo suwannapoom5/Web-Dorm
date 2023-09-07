@@ -226,6 +226,22 @@ export const rooms = [
     phoneNumber: "333-444-5555",
     status: "Occupied",
   },
+  {
+    id: 11,
+    roomNumber: "110",
+    name: "Sophia Anderson",
+    details: "Presidential Suite",
+    phoneNumber: "333-444-5555",
+    status: "Occupied",
+  },
+  {
+    id: 11,
+    roomNumber: "110",
+    name: "Sophia Anderson",
+    details: "Presidential Suite",
+    phoneNumber: "333-444-5555",
+    status: "Occupied",
+  },
 ];
 export const electricity = [
   {
