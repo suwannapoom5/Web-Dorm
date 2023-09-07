@@ -1,4 +1,8 @@
 import Dashboard from "views/Dashboard.js";
+import Personnel from "views/Personnel.js";
+import Calender from "views/Calender.js";
+import News  from "views/News";
+import Paybill from "views/Paybill";
 
 var routes = [
   {
@@ -9,20 +13,27 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
     name: "บริการต่างๆ",
     icon: "nc-icon nc-briefcase-24",
     layout: "/admin",
     dropdown: [
       {
-        path: "/service1",
+        path: "/dashboard",
         name: "บริการ 1",
-        component: " ", 
+        layout: "/admin",
+        component: <Dashboard />, 
       },
       {
         path: "/service2",
         name: "บริการ 2",
-        component: " ", 
+        layout: "/admin",
+        component: <Dashboard />, 
+      },
+      {
+        path: "/service2",
+        name: "บริการ 3",
+        layout: "/admin",
+        component: <Dashboard />, 
       },
     ],
   },
@@ -51,35 +62,35 @@ var routes = [
     path: "/tables",
     name: "แจ้งบิล",
     icon: "nc-icon nc-cloud-upload-94",
-    component: " ",
+    component: "",
     layout: "/admin",
   },
   {
     path: "/rr",
     name: "จ่ายบิล",
     icon: "nc-icon nc-laptop",
-    component: " ",
+    component: <Paybill />,
     layout: "/admin",
   },
   {
     path: "/cc",
     name: "บอร์ดข่าวสาร",
     icon: "nc-icon nc-paper",
-    component: " ",
+    component: <News />,
     layout: "/admin",
   },
   {
     path: "/bb",
     name: "ปฏิทินหอพัก",
     icon: "nc-icon nc-calendar-60",
-    component: " ",
+    component: <Calender />,
     layout: "/admin",
   },
   {
-    path: "/aa",
+    path: "/Personnel",
     name: "บุคลากร",
     icon: "nc-icon nc-single-02",
-    component: " ",
+    component: <Personnel />,
     layout: "/admin",
   },
 ];
